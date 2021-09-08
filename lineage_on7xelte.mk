@@ -24,7 +24,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 
 # Inherit device Sepolicy from lineage
-$(call inherit-product, device/lineage/sepolicy/common/sepolicy.mk)
+# $(call inherit-product, device/lineage/sepolicy/common/sepolicy.mk)
 
 # Device identifier
 PRODUCT_NAME := lineage_on7xelte
