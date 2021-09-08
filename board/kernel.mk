@@ -15,4 +15,4 @@
 #
 
 # Kernel
-TARGET_KERNEL_CONFIG := oxygen_on7xelte_defconfig
+TARGET_KERNEL_CONFIG := lineage_on7xelte_defconfig
