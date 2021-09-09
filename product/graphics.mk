@@ -32,3 +32,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.drm@1.0-impl \
     android.hardware.drm@1.0-service
+
+# Device uses high-density artwork where available
+PRODUCT_AAPT_PREF_CONFIG := xxhdpi
+
+# Boot animation
+TARGET_SCREEN_WIDTH := 1080
+TARGET_SCREEN_HEIGHT := 1920

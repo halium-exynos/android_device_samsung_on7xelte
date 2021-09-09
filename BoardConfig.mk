@@ -14,7 +14,8 @@
 # limitations under the License.
 #
 
-LOCAL_PATH := device/samsung/exynos7870-common
+LOCAL_PATH := device/samsung/on7xelte
+TARGET_OTA_ASSERT_DEVICE := on7xelte,on7xeltedd,on7xeltekl,on7xeltekk,on7xelteks,on7xelteub,on7xeltezt
 
 # Include headers
 TARGET_SPECIFIC_HEADER_PATH := device/samsung/exynos7870-common/include
@@ -22,7 +23,7 @@ TARGET_SPECIFIC_HEADER_PATH := device/samsung/exynos7870-common/include
 TARGET_PROCESS_SDK_VERSION_OVERRIDE += \
     /system/bin/mediaserver=24 \
     /system/vendor/bin/hw/rild=27
-    
+
 # SELinux
 BOARD_SEPOLICY_DIRS += device/samsung/exynos7870-common/sepolicy
 
@@ -36,13 +37,30 @@ export USE_CCACHE=1
 export ALLOW_MISSING_DEPENDENCIES=true
 
 #Just another command
-export LC_ALL=C 
+export LC_ALL=C
 
 #Java
-export JAVA_TOOL_OPTIONS=-Dfile.encoding=UTF8 
+export JAVA_TOOL_OPTIONS=-Dfile.encoding=UTF8
 
 # Properties
 TARGET_SYSTEM_PROP := $(LOCAL_PATH)/system.prop
 
 # Inherit splitted common board configs
 -include $(LOCAL_PATH)/board/*.mk
+
+# Init
+TARGET_INIT_VENDOR_LIB := libinit_sec
+
+# SELinux
+BOARD_SEPOLICY_DIRS += device/samsung/on7xelte/sepolicy
+
+# We modify several neverallows, so let the build proceed
+ifneq ($(TARGET_BUILD_VARIANT),user)
+SELINUX_IGNORE_NEVERALLOWS := true
+endif
+
+# Properties
+TARGET_SYSTEM_PROP += $(LOCAL_PATH)/system.prop
+
+# Inherit from the proprietary version
+-include vendor/samsung/on7xelte/BoardConfigVendor.mk

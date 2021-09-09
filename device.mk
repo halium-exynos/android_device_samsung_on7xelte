@@ -14,7 +14,11 @@
 # limitations under the License.
 #
 
-LOCAL_PATH := device/samsung/exynos7870-common
+LOCAL_PATH := device/samsung/on7xelte
+
+TARGET_SPECIFIC_HEADER_PATH += $(LOCAL_PATH)/include
+
+DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
@@ -27,3 +31,17 @@ ifneq ($(INCLUDE_EXYNOS_BSP),)
 $(call inherit-product, hardware/samsung_slsi/exynos5/exynos5.mk)
 $(call inherit-product, hardware/samsung_slsi/exynos7870/exynos7870.mk)
 endif
+
+# Trust HAL
+PRODUCT_PACKAGES += \
+    vendor.lineage.trust@1.0-service
+
+# call the proprietary setup
+$(call inherit-product, vendor/samsung/on7xelte/on7xelte-vendor.mk)
+
+# include splitted configs
+-include $(LOCAL_PATH)/product/*.mk
+
+# Manifest
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/manifest.xml:system/vendor/manifest.xml

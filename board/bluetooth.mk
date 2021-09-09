@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2018 The LineageOS Project
+# Copyright (C) 2017 The LineageOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -14,10 +14,9 @@
 # limitations under the License.
 #
 
-LOCAL_PATH := $(call my-dir)
-
-ifneq ($(filter on7xelte, $(TARGET_DEVICE)),)
-
-include $(call all-makefiles-under,$(LOCAL_PATH))
-
-endif
+# Bluetooth
+BOARD_HAVE_BLUETOOTH := true
+BOARD_HAVE_BLUETOOTH_BCM := true
+BOARD_HAVE_SAMSUNG_BLUETOOTH := true
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(LOCAL_PATH)/bluetooth
+BOARD_CUSTOM_BT_CONFIG := $(LOCAL_PATH)/bluetooth/libbt_vndcfg.txt

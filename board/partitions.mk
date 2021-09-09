@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2018 The LineageOS Project
+# Copyright (C) 2017 The LineageOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -14,10 +14,13 @@
 # limitations under the License.
 #
 
-LOCAL_PATH := $(call my-dir)
+# Partition Sizes
+BOARD_BOOTIMAGE_PARTITION_SIZE     := 33554432
+BOARD_RECOVERYIMAGE_PARTITION_SIZE := 39845888
+BOARD_SYSTEMIMAGE_PARTITION_SIZE   := 3072000000
+BOARD_USERDATAIMAGE_PARTITION_SIZE := 10737418240
+BOARD_CACHEIMAGE_PARTITION_SIZE    := 209715200
+BOARD_FLASH_BLOCK_SIZE := 4096
 
-ifneq ($(filter on7xelte, $(TARGET_DEVICE)),)
-
-include $(call all-makefiles-under,$(LOCAL_PATH))
-
-endif
+# Use dedicated /cache partition instead of /data/cache
+BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE  := ext4

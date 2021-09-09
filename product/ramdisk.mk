@@ -21,7 +21,9 @@ PRODUCT_PACKAGES += \
     init.power.rc \
     init.samsungexynos7870.rc \
     init.samsungexynos7870.usb.rc \
-    ueventd.samsungexynos7870.rc
+    ueventd.samsungexynos7870.rc \
+    init.wifi.rc \
+    init.target.rc
 
 # cpboot-daemon
 PRODUCT_COPY_FILES += \
