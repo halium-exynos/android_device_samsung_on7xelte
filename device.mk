@@ -55,15 +55,15 @@ PRODUCT_PACKAGES += \
 # Wifi
 PRODUCT_PACKAGES += \
     android.hardware.wifi@1.0-service \
-    hostapd \
+#     hostapd \
     libwifi-hal \
     libwpa_client \
     wificond \
     wifiloader \
     wifilogd \
-    wlutil \
-    wpa_supplicant \
-    wpa_supplicant.conf
+    wlutil
+#     wpa_supplicant \
+#     wpa_supplicant.conf
 
 PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/configs/wifi/p2p_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/p2p_supplicant_overlay.conf \
